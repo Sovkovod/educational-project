@@ -1,0 +1,51 @@
+{
+  "_note": "Статы команды. level — сила навыка от 0 до 10 (демо-значения, поставьте реальные). owners — id участников из data/crew.json, у которых навык в инвентаре.",
+
+  "directions": [
+    { "id": "frontend", "label": "FRONTEND", "value": 7 },
+    { "id": "backend", "label": "BACKEND", "value": 8 },
+    { "id": "devops", "label": "DEVOPS", "value": 6 },
+    { "id": "design", "label": "DESIGN", "value": 5 }
+  ],
+
+  "slots": [
+    {
+      "id": "languages",
+      "label": "ЯЗЫКИ",
+      "items": [
+        { "id": "python", "label": "PYTHON", "level": 8, "icon": "scroll", "owners": ["player1", "player3"] },
+        { "id": "javascript", "label": "JAVASCRIPT", "level": 7, "icon": "gem", "owners": ["player2", "player4"] },
+        { "id": "sql", "label": "SQL", "level": 6, "icon": "key", "owners": ["player1"] },
+        { "id": "bash", "label": "BASH", "level": 6, "icon": "sword", "owners": ["player3"] }
+      ]
+    },
+    {
+      "id": "frameworks",
+      "label": "ФРЕЙМВОРКИ",
+      "items": [
+        { "id": "fastapi", "label": "FASTAPI", "level": 7, "icon": "scroll", "owners": ["player1"] },
+        { "id": "react", "label": "REACT", "level": 7, "icon": "gem", "owners": ["player2"] },
+        { "id": "postgresql", "label": "POSTGRESQL", "level": 6, "icon": "key", "owners": ["player1", "player3"] },
+        { "id": "nginx", "label": "NGINX", "level": 5, "icon": "shield", "owners": ["player3"] }
+      ]
+    },
+    {
+      "id": "tools",
+      "label": "ИНСТРУМЕНТЫ",
+      "items": [
+        { "id": "docker", "label": "DOCKER", "level": 7, "icon": "shield", "owners": ["player1", "player3"] },
+        { "id": "git", "label": "GIT / GITVERSE", "level": 7, "icon": "key", "owners": ["player1", "player2", "player3", "player4"] },
+        { "id": "figma", "label": "FIGMA", "level": 6, "icon": "potion", "owners": ["player4"] },
+        { "id": "css", "label": "CSS / АНИМАЦИИ", "level": 7, "icon": "potion", "owners": ["player2", "player4"] }
+      ]
+    },
+    {
+      "id": "magic",
+      "label": "МАГИЯ",
+      "items": [
+        { "id": "idea", "label": "ИДЕЯ", "level": 9, "icon": "scroll", "owners": ["player1"] },
+        { "id": "product", "label": "ПРОДУКТ", "level": 8, "icon": "gem", "owners": ["player1"] }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "player1",
+    "name": "Равиль",
+    "class": "Idea",
+    "group": "861-862 · 1 КУРС",
+    "role": "Капитан",
+    "stats": { "Python": 5, "Docker": 2, "PostgreSQL": 2 },
+    "inventory": ["python", "idea","product","git"],
+    "sprite": "assets/sprites/mage.png",
+    "contact": "https://t.me/ravil_cfmoto",
+    "bio": "Отвечает за идею и сам продукт: придумывает фичи и держит связь внутри команды."
+  },
+  {
+    "id": "player2",
+    "name": "Гриша",
+    "class": "Frontend Ranger",
+    "group": "861-862 · 1 КУРС",
+    "role": "Frontend",
+    "stats": { "JavaScript": 8, "React": 7, "CSS": 7 },
+    "inventory": ["javascript", "react", "git", "figma"],
+    "sprite": "assets/sprites/ranger.png",
+    "contact": "https://t.me/varzi",
+    "bio": "Отвечает за фронтенд: React, вёрстка и анимации интерфейса."
+  },
+  {
+    "id": "player3",
+    "name": "Аяз",
+    "class": "DevOps",
+    "group": "861-862 · 1 КУРС",
+    "role": "DevOps",
+    "stats": { "Docker": 8, "Bash": 7, "Nginx": 6 },
+    "inventory": ["docker", "bash", "git", "nginx"],
+    "sprite": "assets/sprites/knight.png",
+    "contact": "https://t.me/saet_ov",
+    "bio": "Отвечает за инфраструктуру: Docker, Nginx и деплой проекта."
+  }
+]
