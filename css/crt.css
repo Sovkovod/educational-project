@@ -73,7 +73,6 @@ html.js [data-reveal].is-in {
   transform: none;
 }
 
-html.boot-seen .boot { display: none; }
 body.boot-open { overflow: hidden; }
 
 .boot {
@@ -365,6 +364,8 @@ body.boot-open { overflow: hidden; }
   box-shadow: inset 0 12px 20px rgba(0, 0, 0, .6);
 }
 .cab__slot {
+  position: relative;
+  z-index: 7;              /* монета падает поверх панели */
   display: grid;
   place-items: center;
   width: calc(var(--cab-w) * .3);
@@ -376,6 +377,39 @@ body.boot-open { overflow: hidden; }
   color: var(--amber);
   text-shadow: 0 0 10px rgba(255, 179, 71, .5);
   box-shadow: inset 0 3px 8px rgba(0, 0, 0, .8);
+}
+
+/* Монета, которую автомат принимает сам при запуске */
+.cab__slotcoin {
+  position: absolute;
+  left: 50%;
+  bottom: 12%;
+  width: calc(var(--cab-w) * .034);
+  height: calc(var(--cab-w) * .034);
+  margin-left: calc(var(--cab-w) * -.017);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(circle at 34% 28%, #fff0bd 0%, #ffb347 42%, #c9821f 78%, #8a5a12 100%);
+  border: 1px solid #6b4408;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .35), 0 0 10px rgba(255, 179, 71, .55);
+}
+.boot.is-coinf .cab__slotcoin {
+  animation: slotDrop .62s cubic-bezier(.55, 0, .8, 1) both;
+}
+@keyframes slotDrop {
+  0% { transform: translateY(calc(var(--cab-w) * -.34)) scale(.72); opacity: 0; }
+  14% { opacity: 1; }
+  72% { transform: translateY(0) scale(1); opacity: 1; }
+  84% { transform: translateY(0) scale(1.16, .64); opacity: 1; }
+  100% { transform: translateY(calc(var(--cab-w) * .014)) scale(.9, .5); opacity: 0; }
+}
+.boot.is-coinf .cab__slot {
+  animation: slotFlash .62s steps(2, end);
+}
+@keyframes slotFlash {
+  0%, 60% { box-shadow: inset 0 3px 8px rgba(0, 0, 0, .8); }
+  70%, 100% { box-shadow: inset 0 3px 8px rgba(0, 0, 0, .8), 0 0 22px rgba(255, 179, 71, .9); }
 }
 .cab__tray {
   position: relative;
@@ -722,5 +756,6 @@ body.boot-open { overflow: hidden; }
   .boot.is-pulling .cab { animation: none; }
   .cab__lever-arm { transition: none; }
   .boot.is-start .boot__start::after { animation: none; }
+  .cab__slotcoin { display: none; }
   .coin { display: none; }
 }

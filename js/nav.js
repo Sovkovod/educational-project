@@ -14,9 +14,11 @@
   } catch (e) {}
 
   var audioCtx = null;
+  var audioUnlocked = false;
 
   function beep(freq, duration, type, volume) {
     if (!soundOn) return;
+    if (!audioCtx && !audioUnlocked) return;   // до первого клика браузер всё равно молчит
     try {
       var Ctx = window.AudioContext || window.webkitAudioContext;
       if (!Ctx) return;
@@ -35,6 +37,12 @@
       osc.stop(now + duration + 0.02);
     } catch (e) {}
   }
+
+  // Звук включается с первым жестом: до него громкоговоритель автомата «выключен»,
+  // поэтому авто-заставка не создаёт AudioContext и не сыплет предупреждениями в консоль.
+  ['pointerdown', 'keydown'].forEach(function (type) {
+    document.addEventListener(type, function () { audioUnlocked = true; }, { once: true, passive: true });
+  });
 
   Arcade.sfx = {
     coin: function () { beep(880, 0.09); setTimeout(function () { beep(1320, 0.14); }, 90); },
@@ -72,10 +80,28 @@
   }
 
   var boot = document.getElementById('boot');
-  var bootOpen = !!boot && !document.documentElement.classList.contains('boot-seen');
-  var bootStage = 0;      // 0 — INSERT COIN, 1 — PRESS START
+  var bootOpen = !!boot;   // заставка показывается при каждом открытии страницы
+  var bootStage = 'intro'; // intro → ready → done
   var booting = false;
+  var bootTimers = [];
   var coinHost = document.getElementById('bootCoins');
+
+  function bootLater(fn, ms) {
+    bootTimers.push(setTimeout(fn, ms));
+  }
+
+  function clearBootTimers() {
+    bootTimers.forEach(function (id) { clearTimeout(id); });
+    bootTimers = [];
+  }
+
+  function bootText(lineText, hintText) {
+    if (!boot) return;
+    var line = boot.querySelector('.boot__insert');
+    var hint = boot.querySelector('.boot__hint');
+    if (line && typeof lineText === 'string') line.textContent = lineText;
+    if (hint && typeof hintText === 'string') hint.textContent = hintText;
+  }
 
   function focusBootButton() {
     var btn = document.getElementById('bootStart');
@@ -102,14 +128,13 @@
   }
 
   function showPressStart() {
-    if (!boot || booting || boot.classList.contains('is-done')) return;
-    bootStage = 1;
+    if (!boot || booting || bootStage === 'done' || bootStage === 'ready') return;
+    bootStage = 'ready';
+    clearBootTimers();
+    boot.classList.remove('is-coinf');
     boot.classList.add('is-start');
-    var line = boot.querySelector('.boot__insert');
-    var hint = boot.querySelector('.boot__hint');
+    bootText('PRESS START', 'нажмите, чтобы войти');
     var btn = document.getElementById('bootStart');
-    if (line) line.textContent = 'PRESS START';
-    if (hint) hint.textContent = 'нажмите, чтобы войти';
     if (btn) {
       btn.textContent = 'GO';
       btn.setAttribute('aria-label', 'Войти на уровень 0');
@@ -118,61 +143,87 @@
   }
 
   function pullLever() {
-    if (bootStage !== 0) return;
-    bootStage = 1;
+    if (!boot || booting || bootStage !== 'intro') return;
     Arcade.sfx.pull();
     boot.classList.add('is-pulling');
     spawnCoins(30);
-    setTimeout(function () { boot.classList.remove('is-pulling'); }, 780);
+    bootLater(function () { boot.classList.remove('is-pulling'); }, 780);
     if (reduced) {
       showPressStart();
       return;
     }
-    setTimeout(showPressStart, 900);
+    bootLater(showPressStart, 900);
+  }
+
+  function insertCoin() {
+    if (!boot || booting || bootStage !== 'intro') return;
+    boot.classList.add('is-coinf');
+    bootText(null, 'монета принята · CREDIT 1');
+    Arcade.sfx.coin();
+    bootLater(function () {
+      boot.classList.remove('is-coinf');
+      pullLever();
+    }, reduced ? 60 : 640);
   }
 
   function finishBoot() {
     if (!boot || booting) return;
     booting = true;
     bootOpen = false;
+    bootStage = 'done';
+    clearBootTimers();
+    boot.classList.remove('is-pulling', 'is-coinf');
     boot.classList.add('is-done');
     document.body.classList.remove('boot-open');
-    try { localStorage.setItem('arcade:boot', 'done'); } catch (e) {}
     var main = document.getElementById('main');
     if (main) {
       main.setAttribute('tabindex', '-1');
       main.focus({ preventScroll: true });
     }
-    var first = document.getElementById('lvl0');
-    if (first) first.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
+    var hash = (window.location.hash || '').replace('#', '');
+    var target = hash ? document.getElementById(hash) : null;
+    if (!target || !target.classList || !target.classList.contains('lvl-sec')) {
+      target = document.getElementById('lvl0');
+    }
+    if (target) target.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
+  }
+
+  function skipIntro() {
+    if (!boot || booting || bootStage !== 'intro') return;
+    boot.classList.remove('is-coinf', 'is-pulling');
+    spawnCoins(12);
+    showPressStart();
   }
 
   function bootActivate() {
-    if (!bootOpen || booting) return;
-    if (bootStage === 0) pullLever();
+    if (!boot || booting || bootStage === 'done') return;
+    if (bootStage === 'intro') skipIntro();
     else finishBoot();
   }
 
   if (boot) {
-    if (!bootOpen) boot.classList.add('is-done');
-    if (bootOpen) {
-      document.body.classList.add('boot-open');
-      setTimeout(focusBootButton, 60);
+    // Каждое открытие сайта — полный показ: никакого «уже видел» в localStorage.
+    bootStage = 'intro';
+    boot.classList.remove('is-done', 'is-start', 'is-pulling', 'is-coinf');
+    document.body.classList.add('boot-open');
+    bootLater(focusBootButton, 80);
 
-      boot.addEventListener('click', function (event) {
-        if (event.target.closest('#bootSkip')) return;
-        bootActivate();
+    boot.addEventListener('click', function (event) {
+      if (event.target.closest('#bootSkip')) return;
+      bootActivate();
+    });
+
+    var skip = document.getElementById('bootSkip');
+    if (skip) {
+      skip.addEventListener('click', function (event) {
+        event.preventDefault();
+        Arcade.sfx.move();
+        finishBoot();
       });
-
-      var skip = document.getElementById('bootSkip');
-      if (skip) {
-        skip.addEventListener('click', function (event) {
-          event.preventDefault();
-          Arcade.sfx.move();
-          finishBoot();
-        });
-      }
     }
+
+    // Аттракцион: автомат сам принимает монету и дёргает рычаг.
+    bootLater(insertCoin, reduced ? 0 : 850);
   }
 
   var hud = document.getElementById('hud');

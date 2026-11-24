@@ -17,11 +17,6 @@
 <link rel="stylesheet" href="css/crt.css">
 <script>
   document.documentElement.classList.add('js');
-  try {
-    if (localStorage.getItem('arcade:boot') === 'done') {
-      document.documentElement.classList.add('boot-seen');
-    }
-  } catch (e) {}
 </script>
 <noscript>
   <style>
@@ -245,7 +240,7 @@
         <div class="cab__scan" aria-hidden="true"></div>
         <div class="cab__screen-in">
           <p class="boot__insert" id="bootInsert">INSERT COIN</p>
-          <p class="boot__hint" id="bootHint">нажмите START</p>
+          <p class="boot__hint" id="bootHint">автомат включается…</p>
         </div>
       </div>
 
@@ -255,7 +250,7 @@
       </div>
 
       <div class="cab__base">
-        <div class="cab__slot" aria-hidden="true">25¢</div>
+        <div class="cab__slot" aria-hidden="true">25¢<span class="cab__slotcoin"></span></div>
         <div class="cab__tray" aria-hidden="true">
           <span class="cab__tray-lip"></span>
           <span class="cab__coins" id="bootCoins"></span>
