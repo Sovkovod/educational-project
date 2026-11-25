@@ -25,14 +25,27 @@
   },
   {
     "id": "player3",
-    "name": "Аяз",
-    "class": "DevOps",
+    "name": "Реваль",
+    "class": "Frontend Ranger",
     "group": "861-862 · 1 КУРС",
     "role": "DevOps",
-    "stats": { "Docker": 8, "Bash": 7, "Nginx": 6 },
-    "inventory": ["docker", "bash", "git", "nginx"],
+    "stats": { "Docker": 8, "Bash": 7 },
+    "inventory": ["docker", "bash", "git"],
     "sprite": "assets/sprites/knight.png",
-    "contact": "https://t.me/saet_ov",
-    "bio": "Отвечает за инфраструктуру: Docker, Nginx и деплой проекта."
+    "contact": "https://t.me/@RevaForU",
+    "bio": "Отвечает за инфраструктуру."
+  },
+  {
+    "id": "player4",
+    "name": "Амир",
+    "class": "Design",
+    "group": "861-862 · 1 КУРС",
+    "role": "Дизайн",
+    "stats": { "Figma": 8, "UI": 7, "CSS": 6 },
+    "inventory": ["figma", "css", "git"],
+    "sprite": "assets/sprites/engineer.png",
+    "contact": "https://t.me/@N1kxADG",
+    "bio": "Отвечает за дизайн."
   }
+
 ]
