@@ -1,0 +1,23 @@
+# Служебные файлы ОС и редакторов
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.idea/
+.vscode/
+
+# Локальные окружения и кеши
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Секреты и локальные настройки
+.env
+.env.*
+*.local
+
+# Логи и временные файлы
+*.log
+tmp/

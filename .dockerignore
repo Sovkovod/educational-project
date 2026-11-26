@@ -1,0 +1,17 @@
+# В образ попадают только файлы работающего сайта:
+# index.html, css/, js/, data/, assets/ и инфографика/логотип/
+.git
+.github
+.gitignore
+.dockerignore
+README.md
+README-v2.md
+DATA-MAP.md
+docs/
+ai-sessions/
+ai-sessions.zip
+
+# Генераторы графики в рантайме не нужны
+*.py
+инфографика/logo-serious.html
+инфографика/README.md

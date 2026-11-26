@@ -35,24 +35,25 @@
 
   var FALLBACK = {
     site: {
-      team: { title: 'КОМАНДА «НАЗВАНИЕ»', shortName: 'НАЗВАНИЕ', motto: 'ДЕВИЗ КОМАНДЫ — ОДНА СТРОКА', university: 'ПГУТИ', group: '' },
+      team: { title: 'TATARINNOVATION', shortName: 'TATAR TEAM', motto: 'ДЕВИЗ КОМАНДЫ — НАШИ БАГИ ЭТО ВАШИ ФИЧИ', university: 'КНИТУ-КХТИ', group: '861-ТОП862' },
       site: {
         event: 'ВОЛГА.ТОП 2026', copyright: '© 2026 Команда', levelCaption: 'STAGE 0 — RIVER VALLEY',
         crewLead: 'Четыре игрока в составе. Выберите карточку — откроется профиль с контактом.',
         about: [
-          'Перед вами визитка команды, собранная как старый аркадный автомат: один экран, пять уровней и ни одной лишней кнопки.',
-          'Мы пишем код, ломаем и починяем контейнеры, спорим о шрифтах и о том, где ставить точку с запятой.',
-          'У каждого участника свой класс, свои статы и свой инвентарь — как в настоящей RPG.',
-          'Спускайтесь на уровень ниже: карточки участников, статы команды, таблица рекордов и контакт капитана.'
+          'Мы — TATARINNOVATION: четыре студента КНИТУ-КХТИ с программы «ТОП\u00A0АЙТИ» — капитан, фронтенд, инфраструктура и дизайн.',
+          'На «Волга.ТОП 2026» мы пришли проверить себя на реальной задаче и жёстком сроке — и показать, что умеем командой доводить проект до работающего результата.',
+          'Мы пишем код, работаем ночами и пьем кофе литрами',
+          'У каждого участника свои суперспособности и уровни силы — как в настоящей RPG.',
+          'Прокрутите дальше — там профили экипажа, доска проектов и канал для связи с капитаном.'
         ]
       },
-      contacts: { captain: 'ИМЯ КАПИТАНА', email: 'captain@example.com', telegram: '', repo: 'https://gitverse.ru/', repoLabel: 'gitverse.ru/КОМАНДА' }
+      contacts: { captain: 'Зиганшин Равиль', email: 'ziganshinraw@yandex.ru', telegram: 'https://t.me/ravil_cfmoto', repo: 'https://github.com/Sovkovod/educational-project', repoLabel: 'https://github.com/Sovkovod/educational-project' }
     },
     crew: [
-      { id: 'player1', name: 'PLAYER 1', 'class': 'Idea', group: 'ГРУППА · КУРС', role: 'Капитан', stats: { Python: 8, Docker: 6, PostgreSQL: 5 }, inventory: ['python', 'postgresql', 'docker', 'git'], sprite: 'assets/sprites/mage.png', contact: 'https://t.me/', bio: 'TODO: два предложения о человеке.' },
-      { id: 'player2', name: 'PLAYER 2', 'class': 'Front', group: 'ГРУППА · КУРС', role: 'Frontend', stats: { JavaScript: 8, React: 7, CSS: 7 }, inventory: ['javascript', 'react', 'git', 'figma'], sprite: 'assets/sprites/ranger.png', contact: 'https://t.me/', bio: 'TODO: два предложения о человеке.' },
-      { id: 'player3', name: 'PLAYER 3', 'class': 'Back', group: 'ГРУППА · КУРС', role: 'DevOps', stats: { Docker: 8, Bash: 7, Nginx: 6 }, inventory: ['docker', 'bash', 'git', 'nginx'], sprite: 'assets/sprites/knight.png', contact: 'https://t.me/', bio: 'TODO: два предложения о человеке.' },
-      { id: 'player4', name: 'PLAYER 4', 'class': 'Design Cleric', group: 'ГРУППА · КУРС', role: 'Дизайн', stats: { Figma: 8, UI: 7, Typography: 6 }, inventory: ['figma', 'css', 'javascript', 'git'], sprite: 'assets/sprites/engineer.png', contact: 'https://t.me/', bio: 'TODO: два предложения о человеке.' }
+      { id: 'player1', name: 'Зиганшин Равиль', 'class': 'Idea', group: '861-ТОП862 · 1 КУРС', role: 'Капитан', stats: { Python: 8, Docker: 6, PostgreSQL: 5 }, inventory: ['python', 'postgresql', 'docker', 'git'], sprite: 'assets/sprites/mage.png', contact: 'https://t.me/ravil_cfmoto', bio: 'Отвечает за идею и сам продукт: придумывает фичи и координирует движения внутри команды. Ведет проект' },
+      { id: 'player2', name: 'Галеев Григорий', 'class': 'Front', group: '861-ТОП862 · 1 КУРС', role: 'Frontend', stats: { JavaScript: 8, React: 7, CSS: 7 }, inventory: ['javascript', 'react', 'git', 'figma'], sprite: 'assets/sprites/ranger.png', contact: 'https://t.me/varzi', bio: 'Отвечает за фронтенд: React, вёрстка и анимации интерфейса.' },
+      { id: 'player3', name: 'Сафин Реаль', 'class': 'Back', group: '861-ТОП862 · 1 КУРС', role: 'DevOps', stats: { Docker: 8, Bash: 7, Nginx: 6 }, inventory: ['docker', 'bash', 'git', 'nginx'], sprite: 'assets/sprites/knight.png', contact: 'https://t.me/RevaForU', bio: 'Отвечает за инфраструктуру.' },
+      { id: 'player4', name: 'Загриев Амир', 'class': 'Design Cleric', group: '861-ТОП862 · 1 КУРС', role: 'Дизайн', stats: { Figma: 8, UI: 7, Typography: 6 }, inventory: ['figma', 'css', 'javascript', 'git'], sprite: 'assets/sprites/engineer.png', contact: 'https://t.me/N1kxADG', bio: 'Отвечает за дизайн.' }
     ],
     skills: {
       directions: [
@@ -76,7 +77,7 @@
         ] },
         { id: 'tools', label: 'ИНСТРУМЕНТЫ', items: [
           { id: 'docker', label: 'DOCKER', level: 7, icon: 'shield', owners: ['player1', 'player3'] },
-          { id: 'git', label: 'GIT / GITVERSE', level: 7, icon: 'key', owners: ['player1', 'player2', 'player3', 'player4'] },
+          { id: 'git', label: 'GIT', level: 7, icon: 'key', owners: ['player1', 'player2', 'player3', 'player4'] },
           { id: 'figma', label: 'FIGMA', level: 6, icon: 'potion', owners: ['player4'] },
           { id: 'css', label: 'CSS / АНИМАЦИИ', level: 7, icon: 'potion', owners: ['player2', 'player4'] }
         ] }

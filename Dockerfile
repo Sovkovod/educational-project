@@ -16,6 +16,9 @@ COPY js/ /usr/share/nginx/html/js/
 COPY data/ /usr/share/nginx/html/data/
 COPY assets/ /usr/share/nginx/html/assets/
 
+# логотип брендового блока: index.html берёт инфографика/логотип/lockup-v-dark.svg
+COPY инфографика/логотип/ /usr/share/nginx/html/инфографика/логотип/
+
 EXPOSE 80
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \

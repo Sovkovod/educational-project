@@ -1,9 +1,9 @@
 [
   {
     "id": "player1",
-    "name": "Равиль",
+    "name": "Зиганшин Равиль",
     "class": "Idea",
-    "group": "861-862 · 1 КУРС",
+    "group": "861-ТОП862 · 1 КУРС",
     "role": "Капитан",
     "stats": { "Python": 5,"UI": 3,  "Figma": 4 },
     "inventory": ["python", "idea","product","git"],
@@ -13,9 +13,9 @@
   },
   {
     "id": "player2",
-    "name": "Гриша",
+    "name": "Галеев Григорий",
     "class": "Frontend",
-    "group": "861-862 · 1 КУРС",
+    "group": "861-ТОП862 · 1 КУРС",
     "role": "Frontend",
     "stats": { "JavaScript": 6, "React": 5, "CSS": 5 },
     "inventory": ["javascript", "git", "figma"],
@@ -25,26 +25,26 @@
   },
   {
     "id": "player3",
-    "name": "Реваль",
+    "name": "Сафин Реаль",
     "class": "Frontend Ranger",
-    "group": "861-862 · 1 КУРС",
+    "group": "861-ТОП862 · 1 КУРС",
     "role": "Frontend Ranger",
     "stats": { "Docker": 8, "Bash": 7 },
     "inventory": ["docker", "bash", "git"],
     "sprite": "assets/sprites/knight.png",
-    "contact": "https://t.me/@RevaForU",
+    "contact": "https://t.me/RevaForU",
     "bio": "Отвечает за инфраструктуру."
   },
   {
     "id": "player4",
-    "name": "Амир",
+    "name": "Загриев Амир",
     "class": "Design",
-    "group": "861-862 · 1 КУРС",
+    "group": "861-ТОП862 · 1 КУРС",
     "role": "Дизайн",
     "stats": { "Figma": 3, "UI": 4, "CSS": 3 },
     "inventory": ["figma", "css", "git"],
     "sprite": "assets/sprites/engineer.png",
-    "contact": "https://t.me/@N1kxADG",
+    "contact": "https://t.me/N1kxADG",
     "bio": "Отвечает за дизайн."
   }
 

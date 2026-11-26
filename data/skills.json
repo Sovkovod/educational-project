@@ -1,5 +1,5 @@
 {
-  "_note": "Статы команды. level — сила навыка от 0 до 10 (демо-значения, поставьте реальные). owners — id участников из data/crew.json, у которых навык в инвентаре.",
+  "_note": "Статы команды. level — сила навыка от 0 до 10. owners — id участников из data/crew.json, у которых навык в инвентаре.",
 
   "directions": [
     { "id": "frontend", "label": "FRONTEND", "value": 7 },
@@ -34,7 +34,7 @@
       "label": "ИНСТРУМЕНТЫ",
       "items": [
         { "id": "docker", "label": "DOCKER", "level": 7, "icon": "shield", "owners": ["player1", "player3"] },
-        { "id": "git", "label": "GIT / GITVERSE", "level": 7, "icon": "key", "owners": ["player1", "player2", "player3", "player4"] },
+        { "id": "git", "label": "GIT", "level": 7, "icon": "key", "owners": ["player1", "player2", "player3", "player4"] },
         { "id": "figma", "label": "FIGMA", "level": 6, "icon": "potion", "owners": ["player4"] },
         { "id": "css", "label": "CSS / АНИМАЦИИ", "level": 7, "icon": "potion", "owners": ["player2", "player4"] }
       ]
