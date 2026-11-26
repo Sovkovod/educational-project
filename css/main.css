@@ -465,14 +465,11 @@ input,
   text-shadow: var(--glow-amber);
   margin-bottom: 14px;
 }
-.hiscore__name {
-  font-family: var(--font-px);
-  font-weight: 400;
-  font-size: clamp(14px, 3.1vw, 30px);
-  line-height: 1.6;
-  color: var(--ink);
-  text-shadow: 0 0 20px rgba(245, 245, 240, .3), 4px 4px 0 var(--bg-deep);
-  overflow-wrap: break-word;
+.hiscore__brand {
+  display: block;
+  width: clamp(148px, 26vw, 236px);
+  height: auto;
+  margin: 0 auto 2px;
 }
 .hiscore__motto {
   margin-top: 12px;
@@ -1705,7 +1702,7 @@ tr.is-open .chev { transform: rotate(90deg); }
   .sec-head__sub { font-size: 8px; }
 
   .hiscore { border-width: 3px; }
-  .hiscore__name { font-size: clamp(13px, 5.2vw, 18px); }
+  .hiscore__brand { width: clamp(132px, 46vw, 176px); }
   .hiscore__label { font-size: 8px; }
   .hiscore__meta { font-size: 11px; letter-spacing: .1em; }
   .gameover__big { font-size: clamp(16px, 8vw, 26px); }

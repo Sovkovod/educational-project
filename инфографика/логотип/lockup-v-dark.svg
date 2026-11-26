@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 460"
+     width="720" height="460" role="img" aria-label="TATARINNOVATION">
+<title>TATARINNOVATION — вертикальный лок-ап</title>
+<g transform="translate(296,40) scale(0.25)">
+  <rect x="0" y="0" width="512" height="512" rx="104" fill="#0E1526" stroke="#31405E" stroke-width="4"/>
+  <rect x="116" y="128" width="280" height="76" fill="#FFFFFF"/>
+  <rect x="214" y="204" width="84" height="180" fill="#22C55E"/>
+</g>
+<text x="360" y="252" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="58"
+      font-weight="600" letter-spacing="7" fill="#F5F5F0">TATARINNOVATION</text>
+<text x="360" y="302" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="26"
+      font-weight="500" letter-spacing="4.5" fill="#9AA0B8">IT-КОМАНДА · КНИТУ-КХТИ</text>
+</svg>
